@@ -1,7 +1,7 @@
 import json
 
-from rest_framework import APITestCase, APIClient
-from rest_framework.views import status
+from rest_framework import status
+from rest_framework.test import APITestCase, APIClient
 
 from django.urls import reverse
 
@@ -19,7 +19,7 @@ class CategoryViewSet(APITestCase):
         response = self.client.get(reverse("category-list", kwargs={"version": "v1"}))
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        category_data = json.loads(response.content)
+        category_data = json.loads(response.content)[0]
 
         self.assertEqual(category_data["title"], self.category.title)
 

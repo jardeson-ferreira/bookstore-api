@@ -1,7 +1,7 @@
 import json
 
-from rest_framework import APITestCase, APIClient
-from rest_framework.views import status
+from rest_framework import status
+from rest_framework.test import APITestCase, APIClient
 
 from django.urls import reverse
 
@@ -21,7 +21,7 @@ class TestProductViewSet(APITestCase):
         response = self.client.get(reverse("product-list", kwargs={"version": "v1"}))
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        product_data = json.loads(response.content)
+        product_data = json.loads(response.content)[0]
 
         self.assertEqual(product_data["title"], self.product.title)
         self.assertEqual(product_data["price"], self.product.price)
