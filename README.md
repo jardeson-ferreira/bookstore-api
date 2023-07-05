@@ -1,2 +1,3 @@
 # bookstore
-BookStore Application
+
+BookStore Application with Django and Django Rest Framework
