@@ -155,6 +155,7 @@ cython_debug/
 # Others
 .vscode/
 .DS_Store
+._*
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
