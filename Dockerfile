@@ -21,7 +21,7 @@ ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 \
 ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
 # deps for installing poetry and deps for building python deps
-RUN apt-get update \
+RUN apt-get update && apt-get clean \
     && apt-get install --no-install-recommends -y curl && apt-get clean\
     && apt-get install --no-install-recommends -y build-essential && apt-get clean\
 
@@ -29,7 +29,7 @@ RUN apt-get update \
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
 # install postgres dependencies inside of Docker
-RUN apt-get update \
+RUN apt-get update && apt-get clean\
     && apt-get -y install libpq-dev && apt-get clean\
     && apt-get -y install gcc && apt-get clean\
     && pip install psycopg2
