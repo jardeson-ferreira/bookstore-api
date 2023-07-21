@@ -6,7 +6,7 @@ jobs:
   qa:
     name: Quality Check
 
-    runs-on: "ubuntu-22.04.2"
+    runs-on: ubuntu-22.04.2
 
     steps:
       - uses: actions/checkout@v3
