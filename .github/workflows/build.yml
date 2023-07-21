@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.11.4]
+        python-version: [3.11]
         poetry-version: [1.5.1]
 
     runs-on: ubuntu-latest
