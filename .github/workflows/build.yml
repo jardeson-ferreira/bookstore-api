@@ -10,7 +10,7 @@ jobs:
         python-version: [3.11.4]
         poetry-version: [1.5.1]
 
-    runs-on: ubuntu-22.04.2 LTS
+    runs-on: "ubuntu-22.04.2"
 
     steps:
       - uses: actions/checkout@v3
