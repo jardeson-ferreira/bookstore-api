@@ -1,6 +1,6 @@
 name: Python Pull Request Workflow
 
-on: [push]
+on: [pull_request]
 
 jobs:
   qa:
@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.5.3
 
       - name: Set up Python
-        uses: actions/setup-python@master
+        uses: actions/setup-python@v4.7.0
         with:
           python-version: 3.11.4
 
@@ -39,6 +39,6 @@ jobs:
         uses: wemake-services/wemake-python-styleguide@0.18.0
         continue-on-error: true
         with:
-          reporter: 'github-pr-review'
+          reporter: "github-pr-review"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
