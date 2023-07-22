@@ -74,4 +74,4 @@ COPY . /app/
 EXPOSE 8000
 
 # Comando para iniciar a aplicação usando Gunicorn
-CMD ["gunicorn", "bookstore.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && gunicorn bookstore.wsgi:application --bind 0.0.0.0:8000"]
