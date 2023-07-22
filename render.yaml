@@ -1,5 +1,19 @@
+# build:
+#   docker:
+#     web: Dockerfile
+# run:
+#   web: gunicorn bookstore.wsgi:application --bind 0.0.0.0:$PORT
+
 build:
-  docker:
-    web: Dockerfile
+  dockerfile: Dockerfile
 run:
   web: gunicorn bookstore.wsgi:application --bind 0.0.0.0:$PORT
+services:
+  - name: db
+    env:
+      - key: POSTGRES_USER
+        value: bookstore_dev
+      - key: POSTGRES_PASSWORD
+        value: bookstore_dev
+      - key: POSTGRES_DB
+        value: bookstore_dev_db
