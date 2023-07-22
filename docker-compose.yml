@@ -32,7 +32,7 @@ version: "3"
 services:
   web:
     build: .
-    command: gunicorn bookstore.wsgi:application --bind 0.0.0.0:$PORT
+    command: sh -c "python manage.py migrate && gunicorn bookstore.wsgi:application --bind 0.0.0.0:$PORT"
     ports:
       - "8000:8000"
     depends_on:
