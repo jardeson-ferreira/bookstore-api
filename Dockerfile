@@ -52,33 +52,7 @@ COPY . /app/
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver bookstore-api-81fl.onrender.com"]
-
-
-
-
-
-# Use a imagem Python como base
-FROM python:3.11-slim
-
-# Configurar as variáveis de ambiente
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
-
-# Configurar o diretório de trabalho
-WORKDIR /app
-
-# Copiar os arquivos de dependência e instalar as dependências
-COPY poetry.lock pyproject.toml ./
-RUN pip install --no-cache-dir poetry && poetry config virtualenvs.create false && poetry install --no-dev
-
-# Copiar o restante do código da aplicação
-COPY . /app/
-
-EXPOSE 8000
-
-# # Comando para iniciar a aplicação usando Gunicorn
-# CMD ["sh", "-c", "python manage.py migrate && gunicorn bookstore.wsgi:application --bind 0.0.0.0:8000"]
+# CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver bookstore-api-81fl.onrender.com"]
 
 # Rodar as migrações e criar o superusuário antes de iniciar o servidor Gunicorn
 RUN python manage.py migrate
@@ -86,6 +60,32 @@ RUN echo "from django.contrib.auth.models import User; User.objects.create_super
 
 # Comando para iniciar a aplicação usando Gunicorn
 CMD ["gunicorn", "bookstore.wsgi:application", "--bind", "0.0.0.0:8000"]
+
+
+
+
+# # Use a imagem Python como base
+# FROM python:3.11-slim
+
+# # Configurar as variáveis de ambiente
+# ENV PYTHONUNBUFFERED 1
+# ENV PYTHONDONTWRITEBYTECODE 1
+
+# # Configurar o diretório de trabalho
+# WORKDIR /app
+
+# # Copiar os arquivos de dependência e instalar as dependências
+# COPY poetry.lock pyproject.toml ./
+# RUN pip install --no-cache-dir poetry && poetry config virtualenvs.create false && poetry install --no-dev
+
+# # Copiar o restante do código da aplicação
+# COPY . /app/
+
+# EXPOSE 8000
+
+# # Comando para iniciar a aplicação usando Gunicorn
+# CMD ["sh", "-c", "python manage.py migrate && gunicorn bookstore.wsgi:application --bind 0.0.0.0:8000"]
+
 
 
 # FROM python:3.11-slim
