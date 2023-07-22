@@ -1,0 +1,37 @@
+# Python-specific files and directories
+*.pyc
+__pycache__/
+
+# Dependencies
+venv/
+env/
+*.env
+.env
+
+# Logs, cache, and temporary files
+*.log
+*.cache
+*.swp
+*.swo
+*.tmp
+
+# Generated files (build results, compilation artifacts, etc.)
+/build/
+/dist/
+/*.egg-info/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Database file
+db.sqlite3
+
+# PyCharm
+.idea
+
+# VS Code
+.vscode/
+
+# Notes file
+*.txt
