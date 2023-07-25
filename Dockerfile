@@ -53,8 +53,13 @@ COPY . /app/
 EXPOSE 8000
 
 # Copy and make the "start.sh" script executable.
+RUN apt-get update && apt-get install -y dos2unix \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY start.sh /start.sh
+RUN dos2unix /start.sh
 RUN chmod +x /start.sh
 
 # Set "start.sh" as the default command.
-CMD ["sh", "/start.sh"]
+CMD ["/start.sh"]
