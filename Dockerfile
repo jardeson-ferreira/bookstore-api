@@ -52,9 +52,9 @@ COPY . /app/
 
 EXPOSE 8000
 
-# Run migrations and create the superuser before starting the Gunicorn server
-RUN python manage.py migrate
-RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')" | python manage.py shell
+# Copy and make the "start.sh" script executable.
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
-# Command to start the application using Gunicorn
-CMD ["gunicorn", "bookstore.wsgi:application", "--bind", "0.0.0.0:8000"]
+# Set "start.sh" as the default command.
+CMD ["sh", "/start.sh"]
