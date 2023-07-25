@@ -1,6 +1,6 @@
 # Bookstore
 
-Bookstore APP from Backend Python course from EBAC
+Bookstore API using Django, Django Rest Framework and Docker.
 
 ## Prerequisites
 
@@ -29,16 +29,18 @@ Docker && docker-compose
 3. Run local dev server:
 
    ```shell
-   poetry run manage.py migrate
    poetry run python manage.py runserver
    ```
+
+   3.1 - To access the views, go to the routes "/bookstore/v1/product/" or "/bookstore/v1/order/" on your local address.
 
 4. Run docker dev server environment:
 
    ```shell
    docker-compose up -d --build
-   docker-compose exec web python manage.py migrate
    ```
+
+   4.1 - To access the views, go to the routes "/bookstore/v1/product/" or "/bookstore/v1/order/" on your local address.
 
 5. Run tests inside of docker:
 

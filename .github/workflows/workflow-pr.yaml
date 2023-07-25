@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   qa:
-    name: Quality Check
+    name: Quality check
 
     runs-on: ubuntu-latest
 
