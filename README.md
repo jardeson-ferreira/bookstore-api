@@ -29,22 +29,28 @@ Docker && docker-compose
 3. Run local dev server:
 
    ```shell
-   poetry run python manage.py migrate
+   poetry run manage.py migrate
    poetry run python manage.py runserver
    ```
-
-   3.1 - To access the views, go to the routes "/bookstore/v1/product/" or "/bookstore/v1/order/" on your local address.
 
 4. Run docker dev server environment:
 
    ```shell
    docker-compose up -d --build
+   docker-compose exec web python manage.py migrate
    ```
-
-   4.1 - To access the views, go to the routes "/bookstore/v1/product/" or "/bookstore/v1/order/" on your local address.
 
 5. Run tests inside of docker:
 
    ```shell
-   docker-compose exec web pytest
+   docker-compose exec web python manage.py test
    ```
+
+## App Routes
+
+- /bookstore/v1/order/
+- /bookstore/v1/product/
+
+## Demonstration
+
+http://bookstoreapi.pythonanywhere.com/

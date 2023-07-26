@@ -13,7 +13,7 @@ services:
       - POSTGRES_DB=bookstore_dev_db
   web:
     build: .
-    command: /start.sh
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - app_data:/usr/src/app/
     ports:
