@@ -53,4 +53,4 @@ Docker && docker-compose
 
 ## Demonstration
 
-http://bookstoreapi.pythonanywhere.com/
+<a href="http://bookstoreapi.pythonanywhere.com/" target="_blank">http://bookstoreapi.pythonanywhere.com/</a>
