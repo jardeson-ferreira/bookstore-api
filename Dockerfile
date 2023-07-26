@@ -24,7 +24,7 @@ ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 RUN apt-get update \
     && apt-get install --no-install-recommends -y curl build-essential \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
 RUN curl -sSL https://install.python-poetry.org | python3 -
@@ -34,7 +34,7 @@ RUN apt-get update \
     && apt-get -y install libpq-dev gcc \
     && pip install psycopg2 \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
@@ -52,14 +52,4 @@ COPY . /app/
 
 EXPOSE 8000
 
-# Copy and make the "start.sh" script executable.
-RUN apt-get update && apt-get install -y dos2unix \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-COPY start.sh /start.sh
-RUN dos2unix /start.sh
-RUN chmod +x /start.sh
-
-# Set "start.sh" as the default command.
-CMD ["/start.sh"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
