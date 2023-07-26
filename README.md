@@ -46,11 +46,7 @@ Docker && docker-compose
    docker-compose exec web python manage.py test
    ```
 
-## App Routes
+## Routes
 
 - /bookstore/v1/order/
 - /bookstore/v1/product/
-
-## Demonstration
-
-<a href="http://bookstoreapi.pythonanywhere.com/" target="_blank">http://bookstoreapi.pythonanywhere.com/</a>
