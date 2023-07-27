@@ -1,4 +1,4 @@
-# Bookstore
+# Bookstore API
 
 Bookstore API using Django, Django Rest Framework and Docker.
 
@@ -16,13 +16,13 @@ Docker && docker-compose
 1. Clone this project
 
    ```shell
-   git clone git@github.com:jose-uchoa/bookstore.git
+   git clone git@github.com:jose-uchoa/bookstore-api.git
    ```
 
 2. Install dependencies:
 
    ```shell
-   cd bookstore
+   cd bookstore-api
    poetry install
    ```
 
