@@ -29,7 +29,7 @@ Docker && docker-compose
 3. Run local dev server:
 
    ```shell
-   poetry run manage.py migrate
+   poetry run python manage.py migrate
    poetry run python manage.py runserver
    ```
 
